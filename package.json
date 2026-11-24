@@ -1,0 +1,16 @@
+{
+  "name": "product-catalogue",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev -w @catalogue/api\" \"npm run dev -w @catalogue/web\"",
+    "build": "npm run build -w @catalogue/api && npm run build -w @catalogue/web",
+    "test": "npm run test -w @catalogue/api",
+    "typecheck": "npm run typecheck -w @catalogue/api && npm run typecheck -w @catalogue/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  }
+}
